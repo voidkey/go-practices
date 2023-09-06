@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>HELLO TEST</title>
+</head>
+<body>
+    <p>Hello,   {{- .name -}}</p>
+    <p>Gender:{{.m1.gender}}</p>
+    <p>Age:{{.u1.Age}}</p>
+<hr>
+{{$v1 := 100}}
+{{$age := .m1.Age}}
+
+<hr>
+{{if $v1}}
+{{$v1}}
+{{else}}
+Nothing!
+{{end}}
+
+<hr>
+{{if lt $age 22}}
+Go to study
+{{else}}
+Go to work
+{{end}}
+
+<hr>
+{{range $idx,$hobby:=.hobby}}
+    <p>{{$idx}} - {{$hobby}}</p>
+{{else}}
+    没有爱好
+{{end}}
+
+<hr>
+<p>m1</p>
+{{with .m1}}
+<p>{{.Name}}</p>
+<p>{{.Age}}</p>
+<p>{{.gender}}</p>
+{{end}}
+
+<hr>
+{{index .hobby 2}}
+
+</body>
+</html>
